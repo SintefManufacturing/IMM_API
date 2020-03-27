@@ -8,14 +8,14 @@ Class to communicate with Rev PI
 #Administration Details
 #--------------------------------------------------------------------
 __author__ = "Mats Larsen"
-__copyright__ = "SINTEF Raufoss Manufacturing AS 2018"
+__copyright__ = "2020 [NTNU Gjøvik and SINTEF Manufacturing]"
 __credits__ = ["Mats Larsen","Olga Ogorodnyk","Anders Svenskerud Bækkedal"]
-__license__ = "SRM"
+__license__ = "MIT"
 __maintainer__ = "Mats Larsen"
 __email__ = "Mats.Larsen@sintef.no"
 __status__ = "Development"
-__date__ = "22112018"
-__version__ = "0.1"
+__date__ = "27032020"
+__version__ = "1.0"
 #--------------------------------------------------------------------
 #IMPORT
 #--------------------------------------------------------------------
@@ -56,9 +56,7 @@ class RevPi_DAQ_Controller(threading.Thread, RevPi):
         # Sampling time period
         self.__sampling_rate = kwargs.get('sampling_rate',0.5)
 
-
         # Input
-        #{parameter name :[input name ,conversion eq. 10]  }
         self.__input = kwargs.get('inputs',{})
         print('Selected inputs are : {}'.format(self.__input))
 
@@ -78,7 +76,7 @@ class RevPi_DAQ_Controller(threading.Thread, RevPi):
         self.__t_trigger.clear()
 
         self.__event_quene = queue.Queue()
-        
+
         # Next state
         self.__nx_state = States.IDLE
         self.__c_state = States.IDLE
@@ -176,10 +174,9 @@ class RevPi_DAQ_Controller(threading.Thread, RevPi):
         Params:
         Return:
         '''
-        # Triger idle mode
+        # Trigger idle mode
         self.__event_quene.get(block=True)
-        #self.__sample_trigger.wait()
-        #self.__sample_trigger.clear()
+
         if self.__t_trigger.isSet() == False:
             self.__sample_queue(self.get_value())    # Put it in queue
 
@@ -192,7 +189,6 @@ class RevPi_DAQ_Controller(threading.Thread, RevPi):
         '''
         self.__nx_state = state
         self.__t_trigger.set()
-        #self.__sample_trigger.set()
         self.__event_quene.put(True)
 
     def reset_queue(self):
@@ -222,7 +218,7 @@ class RevPi_DAQ_Controller(threading.Thread, RevPi):
         Returns:
         '''
         # Runs forever
-        print('Run thread starting')
+        print('Thread starting')
         while(self.__alive):
             # Lower section
             if self.__nx_state != self.__c_state:
@@ -230,9 +226,7 @@ class RevPi_DAQ_Controller(threading.Thread, RevPi):
                  #self.__sample_trigger.clear()
                  self.__event_quene = queue.Queue()
                  self.__c_state = self.__nx_state
-                 
                  print('Changed to new state {}'.format(self.__c_state))
-
 
             # Upper section
             if self.__c_state == States.IDLE:

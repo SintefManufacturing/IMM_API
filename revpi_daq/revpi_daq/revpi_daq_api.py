@@ -4,7 +4,7 @@
 """
 Class to API for RevPI DAQ
 The API set is:
-- get_samples()     -> Returning all samples that has been collected
+- get_samples()     -> Returning all samples that have been collected
 - event()           -> Set the Revpi to event state, waiting a trigger sample from externally
 - event_sample()    -> Trigger a sample when the Revpi is oin event state
 - idle()            -> Revpi is in idle
@@ -15,14 +15,14 @@ The API set is:
 #Administration Details
 #--------------------------------------------------------------------
 __author__ = "Mats Larsen"
-__copyright__ = "SINTEF Raufoss Manufacturing AS 2019"
+__copyright__ = "2020 [NTNU Gjøvik and SINTEF Manufacturing]"
 __credits__ = ["Mats Larsen","Olga Ogorodnyk","Anders Svenskerud Bækkedal"]
-__license__ = "SRM"
+__license__ = "MIT"
 __maintainer__ = "Mats Larsen"
 __email__ = "Mats.Larsen@sintef.no"
 __status__ = "Development"
-__date__ = "12022019"
-__version__ = "0.1"
+__date__ = "27032020"
+__version__ = "1.0"
 #--------------------------------------------------------------------
 #IMPORT
 #--------------------------------------------------------------------
@@ -63,11 +63,8 @@ class RevPi_DAQ_API(RevPi_DAQ_Controller):
         Constructor for REVPODAQ API
         Params : The same params from RevPi_DAQ_Controller
         '''
-
         #Inheritance
         RevPi_DAQ_Controller.__init__(self,inputs=pins,**kwargs)
-
-
 
     def get_async_sample(self,io=None):
         '''

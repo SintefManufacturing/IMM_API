@@ -2,21 +2,20 @@
 #Module Description
 #--------------------------------------------------------------------
 """
-Example to communicate with revpi daq proxy as a normal python script.
-This is an example how to use revpi as a daq system
+Example how to communicate with a revpi daq proxy as a normal python script.
 """
 #--------------------------------------------------------------------
 #Administration Details
 #--------------------------------------------------------------------
 __author__ = "Mats Larsen"
-__credits__ = ["Mats Larsen"]
-__copyright__ = "Sintef Raufoss Manufacturing 2018"
-__license__ = "SRM"
+__credits__ = ["Mats Larsen","Olga Ogorodnyk"]
+__copyright__ = "2020 [NTNU Gjøvik and SINTEF Manufacturing"
+__license__ = "MIT"
 __maintainer__ = "Mats Larsen"
 __email__ = "Mats.Larsen@sintef.no"
 __status__ = "Development"
-__date__ = "31102018"
-__version__ = "0.1"
+__date__ = "27103020"
+__version__ = "1.0"
 #--------------------------------------------------------------------
 #Import
 #--------------------------------------------------------------------
@@ -31,8 +30,8 @@ SRATE = 0.1
 
 pin_path = os.path.join(os.getcwd(),'example','pins.csv')
 #Parameters settings for config revpi daq
-PYRONAME = 'PI.MEGAMOULD'
-NS = ['172.16.0.98',9001]
+PYRONAME = 'Pyro.name' # Insert the pyro4 name
+NS = ['IP','PORT'] # Insert the IP and Port
 #--------------------------------------------------------------------
 #METHODS
 #--------------------------------------------------------------------
@@ -50,4 +49,6 @@ if __name__ ==  "__main__":
         'name': PYRONAME,
         'ns': NS
     }
-    a = revpi_daq.RevPI_DAQ_Proxy(params=params,pyro4_params=pyro4_params)
+    a = revpi_daq.RevPI_DAQ_Proxy(params=params,
+                                  pyro4_params=pyro4_params
+                                  )

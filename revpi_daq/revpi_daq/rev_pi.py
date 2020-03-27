@@ -2,20 +2,20 @@
 #Module Description
 #--------------------------------------------------------------------
 """
-Class to communicate with Rev PI
+Module to communicate with Rev PI
 """
 #--------------------------------------------------------------------
 #Administration Details
 #--------------------------------------------------------------------
 __author__ = "Mats Larsen"
-__copyright__ = "SINTEF Raufoss Manufacturing AS 2019"
+__copyright__ = "2020 [NTNU Gjøvik and SINTEF Manufacturing"
 __credits__ = ["Mats Larsen","Olga Ogorodnyk","Anders Svenskerud Bækkedal"]
 __license__ = "SRM"
 __maintainer__ = "Mats Larsen"
 __email__ = "Mats.Larsen@sintef.no"
 __status__ = "Development"
-__date__ = "11022019"
-__version__ = "0.1"
+__date__ = "27032020"
+__version__ = "1.0"
 #--------------------------------------------------------------------
 #IMPORT
 #--------------------------------------------------------------------

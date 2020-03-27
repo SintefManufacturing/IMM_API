@@ -10,20 +10,18 @@ def read(fname):
 
 setup(
     name = 'RevPI_DAQ',
-    version='0.1',
+    version='1.0',
     description = 'RevPI DAQ for Python.',
     author = 'Mats Larsen, Olga Ogorodnyk',
     author_email = 'Mats.Larsen@sintef.no',
-    url = 'ssh://git@git.code.sintef.no/meg/revpi_daq.git',
     packages = ['revpi_daq'],
     provides = ['revpi_daq'],
     long_description=read('README.md'),
     classifiers = [
         'Development Status :: Development',
-        'License :: SRM',
         'Natural Language :: English',
         'Programming Language :: Python',
         'Topic :: Scientific/Engineering',
     ],
-license = 'SRM'
+license = 'mit'
 )

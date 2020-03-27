@@ -2,20 +2,20 @@
 #Module Description
 #--------------------------------------------------------------------
 """
-Class to communicate with  PI as a service with PYRO4.
+Module to communicate with a PI as a service by using PYRO4.
 """
 #--------------------------------------------------------------------
 #Administration Details
 #--------------------------------------------------------------------
 __author__ = "Mats Larsen"
-__copyright__ = "SINTEF Raufoss Manufacturing AS 2018"
-__credits__ = ["Mats Larsen"]
-__license__ = "SRM"
+__copyright__ = "2020 [NTNU Gjøvik and SINTEF Manufacturing]"
+__credits__ = ["Mats Larsen", "Olga Ogorodnyk"]
+__license__ = "MIT"
 __maintainer__ = "Mats Larsen"
 __email__ = "Mats.Larsen@sintef.no"
 __status__ = "Development"
-__date__ = "12022019"
-__version__ = "0.1"
+__date__ = "27032020"
+__version__ = "1.0"
 #--------------------------------------------------------------------
 #IMPORT
 #--------------------------------------------------------------------
