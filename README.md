@@ -1,10 +1,10 @@
-#Description:
+# Description:
 This python package is for
 - ENGEL-Machine-Interface for python
 - DAQ using REVPI for python.
 - Database-functionality, for sampling data.
 
-#Dictionary
+# Dictionary
 - imm                           -> Source code for imm interface
 - revPi_DAQ_API									-> Source code for daq
 - logging_system 								-> Source code for database class
@@ -13,11 +13,11 @@ This python package is for
 - README.md                     -> This file    
 - setup.py			            		-> Script file to install as a library
 
-#Install as a library:
+# Install as a library:
 If want to install in python's library the type : python3 setup.py install
 To reinstall it, then write the same command.
 
-#License
+# License
 Copyright (c) 2020 [NTNU Gjøvik and SINTEF Manufacturing]
 
 
