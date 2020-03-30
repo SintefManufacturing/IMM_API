@@ -1,0 +1,98 @@
+name;path_act_value;path_set_value;path_set_low_value;path_set_high_value;enable;description;unit;keyword
+shotcounter;cc300://imm/cm#//c.ShotCounter/p.sv_iShotCounter/v;0;0;0;0;Count shots;Piece;SZx
+rejectcounter;cc300://imm/cm#//c.ShotCounter/p.sv_iRejectCounter/v;0;0;0;0;How many bad produced parts;Piece;ASZ
+machine_date;cc300://imm/cm#//c.PDP/p.sv_dPDPDate/v;0;0;0;0;Current date;Text;Datum
+machine_time;cc300://imm/cm#//c.PDP/p.sv_dPDPTime/v;0;0;0;0;Current time;Text;Zeit
+cycle_time;cc300://imm/cm#//c.CycleTime/p.sv_CycleTime/v/p.dActvalLast/v;0;0;0;0;Last cycle time;Seconds;?
+ejector_pos;cc300://imm/cm#//c.Ejector1/p.sv_MeasActPos/v/p.rAct/v;0;cc300://imm/cm#//c.Ejector1/p.sv_rEjeBPos/v;cc300://imm/cm#//c.Ejector1/p.sv_rEjeFPos/v;0;Position of ejector;cm;?
+cushion_part;cc300://imm/cm#//c.InjectionUnit1/p.sv_rCushionActPart/v;0;0;cc300://imm/cm#//c.InjectionUnit1/p.sv_rCushionMax/v;0;Cushion smallest relation to part;cm^3;ACPx
+cushion_part_end;cc300://imm/cm#//c.InjectionUnit1/p.sv_rCushionEndPart/v;0;0;0;0;Cushion value after holding pressure (last value during the cycle);cm^3;ACPn
+injection_time;cc300://imm/cm#//c.InjectionUnit1/p.sv_dInjCutOffActValPart/v;0;cc300://imm/cm#//c.InjectionUnit1/p.sv_dInjTimeMin/v;cc300://imm/cm#//c.InjectionUnit1/p.sv_dInjTimeMax/v;0;Injection time;Seconds;ZSx
+plasticizing_time;cc300://imm/cm#//c.InjectionUnit1/p.sv_dPlastTimeActPart/v;0;cc300://imm/cm#//c.InjectionUnit1/p.sv_dPlastTimeMin/v;cc300://imm/cm#//c.InjectionUnit1/p.sv_dPlastTimeMax/v;0;Dosseringstid/Plasticizing time;Seconds;ZDx
+cooling_time;cc300://imm/cm#//c.system/p.sv_CoolingTime/v/p.rActVal/v;0;0;0;0;Cooling time;Seconds;Z4x
+part_counter;cc300://imm/cm#//c.system/p.sv_iPartCounterActval/v;0;0;0;0;Count of parts;Piece;StZx
+good_parts;cc300://imm/cm#//c.ShotCounter/p.sv_iShotsGoodPart/v;0;0;0;0;Count of good parts;Piece;SZGx
+nozzle_ct;cc300://imm/cm#//c.Nozzle1/p.sv_dCycleTimeForw/v;0;0;0;0;Cycle time for nozzle advanced;Seconds;ZDvo
+current_station;cc300://imm/cm#//c.MoldSwivDevice1/p.sv_iActStation/v;0;0;0;0;Current station of the tool ;Station nummer;DtStat
+iu_peak_rot_part;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPeakRotPart/v;0;0;0;0;Speed peak value;m/s;DZs
+FlowNo;cc300://imm/cm#//c.InjectionUnit1/p.sv_rFlowNoInjActValPart/v;0;0;0;0;Flow number (?);bar;FZx
+rInjPrOnCutOffPart;cc300://imm/cm#//c.InjectionUnit1/p.sv_rInjPrOnCutOffPart/v;0;0;0;0;Specific pressure at switch over;bar;APHu
+switchover_volume;cc300://imm/cm#//c.InjectionUnit1/p.sv_rInjPosOnCutOffPart/v;cc300://imm/cm#//c.InjectionUnit1/p.sv_rInjPosOnCutOffPart/v;0;0;0;Switchover volume actual value;cm^3;AC3u
+shot_volume_part;cc300://imm/cm#//c.InjectionUnit1/p.sv_rShotVolumePart/v;0;0;0;0;Volume of the shot;cm^3;Svo
+injection_rate;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPlastPowerPDP/v;0;0;0;0;Injection rate of the shot (metering performance);cm/s;iwdls
+pressure_peak;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPeakBackPrPart/v;0;0;0;0;Specific back pressure peak value;bar;APSs
+post_cycle_time_pressure;cc300://imm/cm#//c.InjectionUnit1/p.sv_dCycleTimePostPressure/v;0;0;0;0;Cycle time post pressure/Cycle time holding pressure;Seconds;ZNach
+Dosing_volume ;cc300://imm/cm#//c.InjectionUnit1/p.sv_rMeasActVolumePart/v;0;0;0;0;Dosering volum of the part/Plasticizing volume;cm^3;ASSx
+torque_peak;cc300://imm/cm#//c.InjectionUnit1/p.sv_rTorquePeakValueCurrentCycle/v;0;0;0;0;Torque peak current cycle;Nm;Ms
+injection_peak_pre_pressure;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPeakPrePPart/v;0;0;0;0;Specific injection pressure peak value;bar;APVs
+melt_cushion;cc300://imm/cm#//c.InjectionUnit1/p.sv_rCushionEndBefPrReliefPart/v;0;0;0;0;Material cushion end holding pressure;cm^3;ACPv
+injection_peak_post_pressure;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPeakPostPPart/v;0;0;0;0;Specific holding pressure peak value;bar;APNs
+Blow-out_time;cc300://imm/cm#//c.InjectionUnit1/p.sv_dGasPurgingAct/v;0;0;0;0;Blow-out/purging time actual value;Seconds;iwzausblx
+torque_mean_cycle;cc300://imm/cm#//c.InjectionUnit1/p.sv_rTorqueMeanValueCurrentCycle/v;0;0;0;0;Torque mean current cycle;Nm;Mm
+injection_work;cc300://imm/cm#//c.InjectionUnit1/p.sv_rIntegralPPart/v;0;0;0;0;Injection work;Energy;EA
+ejector_cycletime;cc300://imm/cm#//c.Ejector1/p.sv_dCycleTime/v;0;0;0;0;Cycle time of the ejector;Seconds;ZAusw
+demolding_cycletime;cc300://imm/cm#//c.Demolding/p.sv_dCycleTimeTillEndOfDemolding/v;0;0;0;0;Cycle time until end demolding;Seconds;ZUs
+cycle_time_removal;cc300://imm/cm#//c.CycleTime/p.sv_dQuittDemolding1PDP/v;0;0;0;0;Cycle time acknowledgment removal/take-off station;Seconds;ZQDx
+Cooling_cycletime;cc300://imm/cm#//c.CycleTime/p.sv_dCooling1PDP/v;0;0;0;0;Cooling time cycle time;Seconds;Z4x
+closing_time;cc300://imm/cm#//c.CycleTime/p.sv_dMoldClose1PDP/v;0;0;0;0;Cycle-time mould closing ;Seconds;ZSchl
+core_movement;cc300://imm/cm#//c.CycleTime/p.sv_dCoreMovements/v;0;0;0;0;Cycle time core movement;Seconds;ZKern
+mould_time_closing;cc300://imm/cm#//c.CycleTime/p.sv_dMoldCloseClmpBldPDP/v;0;0;0;0;Clamp force build-up time;Seconds;ZSKa
+cycle_time_close;cc300://imm/cm#//c.CycleTime/p.sv_dMoldCloseClPDP/v;0;0;0;0;Cycle time Closing;Seconds;ZEsch
+cycle_time_open;cc300://imm/cm#//c.CycleTime/p.sv_dMoldOpenOpPDP/v;0;0;0;0;Cycle time Opening;Seconds;ZEoef
+demoduling_time;cc300://imm/cm#//c.CycleTime/p.sv_dDemolding1PDP/v;0;0;0;0;Removal from the mould/mould pause time;Seconds;ZEx
+temp_g4Z01;cc300://imm/cm#//c.TemperingComponent/TemperingGroup4/p.TemperingZone1/v/p.ActValue/v;0;0;0;0;Not working;C;H12x
+temp_g01z02;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone1/v/p.ActValue/v;0;0;0;0;Temperature Cylinder Zone 2;C;H2x
+temp_g01z03;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone2/v/p.ActValue/v;0;0;0;0;Temperature Cylinder Zone 3;C;H3x
+temp_g01z04;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone3/v/p.ActValue/v;0;0;0;0;Temperature Cylinder Zone4;C;H4x
+temp_g01z05;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone4/v/p.ActValue/v;0;0;0;0;Temperature Cylinder Zone5;C;H5x
+temp_g01z06;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone5/v/p.ActValue/v;0;0;0;0;Temperature Cylinder Zone6;C;H6x
+temp_g03z09;cc300://imm/cm#//c.TemperingComponent/TemperingGroup3/p.TemperingZone1/v/p.ActValue/v;0;0;0;0;Fixed plate tool 1 Temperature Zone 9 ;C;H9x
+temp_g03z10;cc300://imm/cm#//c.TemperingComponent/TemperingGroup3/p.TemperingZone2/v/p.ActValue/v;0;0;0;0;Fixed plate tool 2 Temperature Zone 10;C;H10x
+temp_g03z11;cc300://imm/cm#//c.TemperingComponent/TemperingGroup3/p.TemperingZone3/v/p.ActValue/v;0;0;0;0;Fixed plate tool 2 Temperature Zone 11(Not correct ?, value to big!!);C;H11x
+temp_g04z12;cc300://imm/cm#//c.TemperingComponent/TemperingGroup4/p.TemperingZone1/v/p.ActValue/v;0;0;0;0;Fixed plate tool 4 Temperature Zone 12(Not working);C;H12x
+heating_c01_z01;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone1/v/p.ActValue/v;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone1/v/p.SetValue/v;0;0;1;Heating Group Cylinder 1 Zone 1;C;HGC1_Z1x
+heating_c01_z02;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone2/v/p.ActValue/v;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone2/v/p.ActValue/v;0;0;0;Heating Group Cylinder 1 Zone 2;C;HGC1_Z2x
+heating_c01_z03;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone3/v/p.ActValue/v;cc300://imm/cm#//c.TemperingComponent/TemperingGroup1/p.TemperingZone3/v/p.SetValue/v;0;0;0;Heating Group Cylinder 1 Zone 3;C;HGC1_Z3x
+clamping_force_peak;cc300://imm/cm#//c.Mold1/p.sv_PeakClmpForce/v/p.rPeakVal/v;0;0;0;0;Clamping force peak value;Int;SKs
+closing_force;cc300://imm/cm#//c.Mold1/p.sv_rActClmpForceStored/v;0;0;0;1;Closing force;Int;SKx
+shot_volume_corr;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPlastStopVolCorr/v;0;0;0;0;Shot volume end - corrected;Int;swc1m
+mold_protection_time;cc300://imm/cm#//c.Mold1/p.sv_dMldProtTimeAct/v;0;0;0;0;Mold protection time;Seconds;ZFx
+clamp_force_relief_time;cc300://imm/cm#//c.CycleTime/p.sv_dMoldOpenClmpRedPDP/v;0;0;0;0;Clamp force relief time;Seconds;ZSKab
+open_stroke_peak;cc300://imm/cm#//c.Mold1/p.sv_rMldOpenPosRecord/v;0;0;0;0;Mold opening stroke peak value;Int;SFs
+mold_pos_min_compress;cc300://imm/cm#//c.Mold1/p.sv_rMinCoiningPosAct/v;0;0;0;0;Minimum mold position during compression;Int;PPMinx
+pos_compress;cc300://imm/cm#//c.Mold1/p.sv_rCoiningPosAct/v;0;0;0;0;Compression pos.actual val.;Int;PPx
+reject_cause;cc300://imm/cm#//c.PDP/p.sv_Deviation/v/p.iText/v;0;0;0;0;Rejects cause;Text;ASU
+mould_number;cc300://imm/cm#//c.Parts/p.sv_sMoldNumber/v;0;0;0;0;Mold number;Int;stwkn
+mould_part_number;cc300://imm/cm#//c.Parts/p.sv_sItemNumber/v;0;0;0;0;Molded part number;Text;stspn
+material_number;cc300://imm/cm#//c.InjectionUnit1/p.sv_sMaterialNumber/v;0;0;0;0;Material number;Text;stmtn
+Machine_number;cc300://imm/cm#//c.Parts/p.sv_sMachineNumber/v;0;0;0;0;Machine number;Int;MCN
+order_number;cc300://imm/cm#//c.Parts/p.sv_sOrderNumber/v;0;0;0;0;Order number;Int;stanr
+current_state;cc300://system/cm#//c.SystemState/p.currentSystemState/v;0;0;0;0;Systems State;Text;?
+switchover_point_corr;cc300://imm/cm#//c.InjectionUnit1/p.sv_FlowNoInj/v/p.rCorrSwitchPoint/v;0;0;0;0;Switchover point correction;Pressure;?
+flow_number;cc300://imm/cm#//c.InjectionUnit1/p.sv_FlowNoInj/v/p.rActVal/v;cc300://imm/cm#//c.InjectionUnit1/p.sv_FlowNoInj/v/p.Param/v/p.rSV/v;0;0;0;Flow number;Pressure;?
+hold_pressure_corr;cc300://imm/cm#//c.InjectionUnit1/p.sv_FlowNoInj/v/p.rCorrPostPress/v;0;0;0;0;Hold Pressure Correction;Pressure;?
+stop_trigger;cc300://imm/cm#//c.InjectionUnit1/p.sv_FlowNoInj/v/p.Param/v/p.rStopTrig/v;0;0;0;0;Stop flow numver measurement;cm3;?
+start_trigger;cc300://imm/cm#//c.InjectionUnit1/p.sv_FlowNoInj/v/p.Param/v/p.rStartTrig/v;0;0;0;0;Start flow numver measurement;cm3;swc17
+flush_time;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPurgeIntrusion/v;0;0;0;0;Flushing time;Seconds;?
+decompression;cc300://imm/cm#//c.InjectionUnit1/p.sv_rDecAfterPlastVolCorr/v;0;0;0;0;Decompression end;cm3;swc2m
+max_injection_spped;cc300://imm/cm#//c.InjectionUnit1/p.sv_rMaxInjectionSpeedGraphic/v;0;0;0;0;Maximum injection speed;mm/s;iwvsprmax
+screw_pos;cc300://imm/cm#//c.InjectionUnit1/p.sv_MeasActPos/v/p.rAct/v;0;0;0;0;Screw position;mm;SSx
+Decomp_before_plasticzing;cc300://imm/cm#//c.InjectionUnit1/p.sv_rDecBeforePlastVol/v;0;0;0;0;Decompression before plasticzing;cm3;swc4
+switchover_range;cc300://imm/cm#//c.InjectionUnit1/p.sv_Inject/v/p.InjCutOff/v/p.rCutOffWindowParal/v;0;0;0;0;Switchover range;cm3;swc3d
+shot_volume_corr;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPlastStopVolCorr/v;0;0;0;0;Shot volume corrected;cm3;swc1m
+Specific_pressure_switchover;cc300://imm/cm#//c.InjectionUnit1/p.sv_InjCutOffCriterionHydPress/v/p.rSetVal/v;0;0;0;0;Specific pressire swithover;bar;swph
+switch_over_range?;cc300://imm/cm#//c.InjectionUnit1/p.sv_InjCutOffCriterionHydPress/v/p.rCutOffWindow/v;0;0;0;0;Switchover range;cm3;swc3b
+injection_speed_peak;cc300://imm/cm#//c.InjectionUnit1/p.sv_PeakV/v/p.rPeakVal/v;0;0;0;0;Injection speed peak;ccm/s;iwvsprs
+cushion_material;cc300://imm/cm#//c.InjectionUnit1/p.sv_rCushionActMon/v;0;0;0;0;Current material cushion;cm3;?
+Specific_pressure_limit;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPreInjectionPSpec/v;0;0;0;0;Specific injection pressure limit;bar;swp6
+switch_over_time;0;cc300://imm/cm#//c.InjectionUnit1/p.sv_InjCutOffCriterionTime/v/p.dSetVal/v;0;0;0;Switch_over_time;Seconds;swz1
+venting_delay;cc300://imm/cm#//c.InjectionUnit1/p.sv_rVentingDelayTime/v;0;0;0;0;Venting start delay;Seconds;?
+plast_delay_time;0;cc300://imm/cm#//c.InjectionUnit1/p.sv_dPlastDelaySet/v;0;0;0;Plasticzing delay time;Seconds;swz3
+holding_pressure_time;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPostPressureTime/v;0;0;0;0;Holding pressure time;Seconds;Z2
+clm_force_switchover;cc300://imm/cm#//c.InjectionUnit1/p.sv_rClmpForceOnCutOff/v;0;0;0;0;Clamping force switch over;kN;iwsku
+screw_speed;cc300://imm/cm#//c.InjectionUnit1/p.sv_MeasActRot/v/p.rAct/v;0;0;0;0;Screw Speed;U/min;DZx
+flow_nr_plast;cc300://imm/cm#//c.InjectionUnit1/p.sv_FlowNoPlast/v/p.rActVal/v;0;0;0;0;Plasticzing number;Int;PLZx
+injection_force;cc300://imm/cm#//c.InjectionUnit1/p.sv_rIntegralPPart/v;0;0;0;0;Injection Force;EnergyWh;EA
+decomg_after_plasticzing;cc300://imm/cm#//c.InjectionUnit1/p.sv_rDecAfterPlastVol/v;0;0;0;0;Decomp after plasticzing;cm3;swc2
+shot_volume;cc300://imm/cm#//c.InjectionUnit1/p.sv_rPlastStopVol/v;0;0;0;0;Shot Volume;cm3;swc1
+cushion_ideal;cc300://imm/cm#//c.InjectionUnit1/p.sv_rCushionIdeal/v;0;0;0;0;Cushion Ideal;cm3;swcp
