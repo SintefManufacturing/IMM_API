@@ -4,7 +4,7 @@
 __author__ = "Mats Larsen"
 __copyright__ = "2020 [NTNU Gjøvik and SINTEF Manufacturing"
 __credits__ = ["Mats Larsen","Olga Ogorodnyk","Anders Svenskerud Bækkedal"]
-__license__ = "SRM"
+__license__ = "MIT"
 __maintainer__ = "Mats Larsen"
 __email__ = "Mats.Larsen@sintef.no"
 __status__ = "Development"

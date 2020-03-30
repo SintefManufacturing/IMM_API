@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #--------------------------------------------------------------------
+# Module Description
+#--------------------------------------------------------------------
 """
 This module is for interaction with IMM over EMI for C300 machines.
 Protocol specification:
@@ -38,7 +40,7 @@ get_parameter_text(param_uri)       -> Returning the parameters description
 get_process_dataset(min_r,max_r)    -> Returning the dataset of uris
 """
 #--------------------------------------------------------------------
-#MODULE
+# Administration Details
 #--------------------------------------------------------------------
 __author__ = "Mats Larsen"
 __copyright__ = "2020 [NTNU Gjøvik and SINTEF Manufacturing]"
