@@ -35,6 +35,6 @@ if __name__ == "__main__":
     # Getting the emi proxy
     print('Trying to get link')
     p = imm.get_proxy(PYRONAME,NS)
-    d = p.get_async:sample()
+    d = p.get_async_sample()
     print(d)
     d.disconnect()

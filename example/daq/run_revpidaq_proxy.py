@@ -28,7 +28,7 @@ from pathlib import Path
 NAME = 'example revpi_daq'
 SRATE = 0.1
 
-pin_path = os.path.join(os.getcwd(),'example','pins.csv')
+pin_path = os.path.join(os.getcwd(),'pins.csv')
 #Parameters settings for config revpi daq
 PYRONAME = 'Pyro.name' # Insert the pyro4 name
 NS = ['IP','PORT'] # Insert the IP and Port
