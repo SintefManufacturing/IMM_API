@@ -123,7 +123,7 @@ class IMM_API(IMMController):
             r.append(d[i])
         return r
 
-    def get_async_act_sample(self,uri=None):
+    def get_async_sample(self,uri=None):
         '''
         Get asynchrony sample independent of the control loop
         '''

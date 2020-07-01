@@ -12,8 +12,8 @@ setup(
     author = 'Mats Larsen, Olga Ogorodnyk',
     author_email = 'Mats.Larsen@sintef.no',
     url = 'https://github.com/SintefManufacturing/IMM_API.git',
-    packages = ['imm','revpi_daq','imm_logging_system'],
-    provides = ['imm','revpi_daq','imm_logging_system'],
+    packages = ['imm','revpi_daq','imm_system'],
+    provides = ['imm','revpi_daq','imm_system'],
     long_description=read('README.md'),
     classifiers = [
         'Development Status :: Development',

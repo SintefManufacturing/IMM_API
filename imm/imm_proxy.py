@@ -124,7 +124,7 @@ class IMMProxy(threading.Thread):
                 alive=False # end active thread
 
             elif a == str("1"): # Get async sample
-                print('Async sample -> {}'.format(self.__inst.get_async_act_sample()))
+                print('Async sample -> {}'.format(self.__inst.get_async_sample()))
             elif a == str("2"): # Idle
                 self.__inst.idle()
             elif a == str("3"): # Event

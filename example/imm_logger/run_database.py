@@ -22,6 +22,7 @@ __version__ = "1.0"
 #IMPORT
 #--------------------------------------------------------------------
 import imm
+import imm_cell
 #--------------------------------------------------------------------
 #CONSTANTS
 #--------------------------------------------------------------------
@@ -34,10 +35,10 @@ Sampling_Time = 1
 #--------------------------------------------------------------------
 if __name__ == "__main__":
 
-    emi = imm.get_proxy(PYRONAME,NS)
-    pi = imm.get_proxy(PYRONAME_PI,NS)
+    emi = imm_cell.get_proxy(PYRONAME,NS)
+    pi = imm_cell.get_proxy(PYRONAME_PI,NS)
     # Create database
-    db = imm.IMM_Logging_System(folder='imm_database',
+    db = imm_cell.API(folder='imm_database',
                      json=True,
                      pickle=False,
                      csv=False,

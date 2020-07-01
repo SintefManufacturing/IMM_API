@@ -6,12 +6,12 @@ This python package is for
 
 # Dictionary
 - imm                           -> Source code for imm interface
-- revPi_DAQ_API									-> Source code for daq
-- logging_system 								-> Source code for database class
-- example                  			-> Illustrate an example for using emi
+- revPi_DAQ_API					-> Source code for daq
+- logging_system 				-> Source code for database class
+- example                  		-> Illustrate an example for using emi
 - .gitignore                    -> File to ignore related to git
 - README.md                     -> This file    
-- setup.py			            		-> Script file to install as a library
+- setup.py			            -> Script file to install as a library
 
 # Install as a library:
 To install the python library, the type : python setup.py install

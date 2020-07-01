@@ -15,4 +15,4 @@ __version__ = "1.0"
 #--------------------------------------------------------------------
 #IMPORT
 #--------------------------------------------------------------------
-from .logging_system import IMM_Logging_System, get_proxy
+from .api import API, get_proxy

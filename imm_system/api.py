@@ -4,7 +4,7 @@
 #Module Description
 #--------------------------------------------------------------------
 '''
-This module is for ENGEL Machine database logging system.
+This module is the system API for ENGEL Machine and the sensor acquisition system.
 '''
 #--------------------------------------------------------------------
 # #Administration Details
@@ -29,6 +29,8 @@ import Pyro4
 import imm
 import json
 import csv
+import pandas
+import pickle
 #--------------------------------------------------------------------
 #CONSTANTS
 #--------------------------------------------------------------------
@@ -39,17 +41,17 @@ THRESHOLD_MOULD_OPENING = 300 # kN
 #--------------------------------------------------------------------
 # CLASSES
 #--------------------------------------------------------------------
-class IMM_Logging_System(threading.Thread):
+class API(threading.Thread):
     '''
-    The class for database logging.
+    The class for API.
     '''
     def __init__(self,**kwargs):
         '''
         Instantiate database for engel database.
         Params:
-        - folder    -> str : The folder to save the samples
+        - folder        -> str : The folder to save the samples
         - sampling_mode -> SamplingMode : Mode of the sampling
-        - devices -> [Any] : Device we want to log
+        - devices       -> [Any] : Device we want to log
         Returns:
         '''
         #--------------------------------------------------------------------
@@ -59,7 +61,7 @@ class IMM_Logging_System(threading.Thread):
         self.__csv = kwargs.get('csv',False)
         self.__json = kwargs.get('json',False)
         self.__pickle = kwargs.get('pickle',False)
-        # Initlaize database interface to machine
+        # Grap device proxies 
         self.__devices = kwargs.get('devices',[])
 
         # Define folder for sampled data
@@ -81,49 +83,13 @@ class IMM_Logging_System(threading.Thread):
         self.daemon = True      # End if main loop stops
         self.start()            # Start agent thread
 
-    def __sampleConstant(self):
-        '''
-        Sample constant without mould closing
-        '''
-        samples = []
-        self.__emi.reset()
-        self.__emi.startLogging()
-        self.__data = []
-        while 10> len(self.__data):
-            self.__getSample()
-        self.__emi.idle()
-        if self.__csv:
-            self.__saveCSV(self.__sampling_folder,self.__data,'shot1')
-        c_data,timestamps = self.__emi.convertUrisToDataSet(self.__data)
 
-        return c_data,timestamps
-
-    def __getSample(self):
-        '''
-        Returning the next sample in the queue.
-        Params:
-        Returns:
-        '''
-        # Get sample
-        d = self.__emi.get_quene_sample()
-
-        # If the sample is valid, insert into queue
-        if d != None:
-            uri = self.__emi.get_param_uris()
-            valid = True
-            for i in uri:
-                #print(i)
-                if i not in d.keys():
-                    valid = False
-            if valid:
-                self.__data.append(d)
 
     def __sampleClosedMould(self):
         '''
         Start logging only when the mould is closed.
         Params:
-        number_of_samples -> int : Number of desired sampling
-        sampling_rate -> float : Sampling rate in seconds.
+        Returns:
         '''
         # Trigger event sampling
         self.__trigger_event()
@@ -145,38 +111,43 @@ class IMM_Logging_System(threading.Thread):
 
     def __reset_devices(self):
         '''
+        Reset all devices
         '''
         for i in self.__devices: i.reset()
 
     def __idle(self):
         '''
+        Set all devices to idle
         '''
         for i in self.__devices: i.idle()
 
     def __event(self):
         '''
+        Set alle devices to event state
         '''
         for i in self.__devices: i.event()
 
     def __get_samples(self):
         '''
+        Get samples from all devices
         '''
         d = {}
         for i in self.__devices:
             s = i.get_samples()
-            print('s : {}'.format(s))
             for key,val in s.items():
                 d[key] = val
         return d
 
     def __trigger_event(self):
         '''
+        Trigger event for all devices
         '''
         for i in self.__devices: i.trigger_event()
         self.__last_timestamp = datetime.datetime.now()
 
     def sample_shots(self,sampling_time):
         '''
+        Sample shots based on a given samplimg time
         '''
         count = 1
         while(self.__alive):
@@ -201,10 +172,9 @@ class IMM_Logging_System(threading.Thread):
             self.__saveShot(folder=r'{}'.format(self.__sampling_folder), # Folder where to save file
                             file_name='shot_{}.json'.format(count),          # Name of file
                             data=d)                           # Data parameters
-                            #timestamps=timestamps)                  # Timestamps
             count += 1
 
-    def startLogging(self,):
+    def startLogging(self):
         '''
         Starting to log the machine with the given settings.
         Params:
@@ -214,17 +184,8 @@ class IMM_Logging_System(threading.Thread):
         count = 1
         while(self.__alive):
             print('Loop : nr {}'.format(count))
-            self.__.reset()
+            self.__reset_devices()
             self.__event()
-
-            if self.__sampling_mode == SamplingMode.CONSTANT:
-                data,timestamps = self.__sampleConstant()
-
-                self.__saveShot(folder=self.__sampling_folder,
-                                file_name='shot1',
-                                data=data,
-                                timestamps=timestamps)
-
             count += 1
 
     def __saveCSV(self,file_name,d):
@@ -257,8 +218,14 @@ class IMM_Logging_System(threading.Thread):
             self.__saveCSV(file_name='{}.csv'.format(file_name),d=data)
 
         if self.__pickle:
-            f = file_classes.PickleDict(folder=folder,file_name=file_name)
-            f.save(data)
+            path = r'{}\{}.p'.format(folder,file_name)
+            dir_path = os.path.dirname(path)
+            try:
+                os.stat(dir_path)
+            except:
+                os.makedirs(dir_path)
+            pickle.dump( data, open( path, "wb" ) )
+            
         if self.__json:
             self.__save_json(path,data)
 

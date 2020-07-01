@@ -77,7 +77,6 @@ class RevPi_DAQ_API(RevPi_DAQ_Controller):
         Return a samples from the FIFO quene. This is properly a thread action to
         get data.
         '''
-
         d = {}
         while self.quene_empty() == False:
             s = self.get_quene_sample()
